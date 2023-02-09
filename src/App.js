@@ -6,14 +6,6 @@ import Results from "./Results"
 
 function App() {
 
-  function onChange() {
-
-  }
-
-  function onSubmit() {
-
-  }
-
   return (
     <div className="App">
 
@@ -22,12 +14,12 @@ function App() {
       </h1>
 
       <h2>
-        Find popular destinations from the airport of your choice!
+        Get information about the airport of your choice!
       </h2>
 
       <Form />
       <Results />
-      
+
     </div>
   );
 }
