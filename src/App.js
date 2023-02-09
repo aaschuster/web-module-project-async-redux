@@ -1,10 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux'
+
 import './App.css';
 
 import Form from "./Form"
 import Results from "./Results"
 
-function App() {
+function App( { results } ) {
 
   return (
     <div className="App">
@@ -14,14 +16,21 @@ function App() {
       </h1>
 
       <h2>
-        Get information about the airport of your choice!
+        Change a sentence into Yoda Speak!!
       </h2>
 
       <Form />
-      <Results />
+      
+      <p>{results}</p>
 
     </div>
   );
 }
 
-export default App;
+const mapProps = state => {
+  return {
+    results: state.results
+  }
+}
+
+export default connect(mapProps, {})(App);

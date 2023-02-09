@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { connect } from "react-redux"
 import { getResults } from "./actions"
 
-function Form( {getResults} ) {
+function Form({ getResults }) {
     const [val, setVal] = useState("");
 
     function onChange(val) {
@@ -17,11 +17,8 @@ function Form( {getResults} ) {
 
     return (
         <form onSubmit={e => onSubmit(e)}>
-            <label>
-                Enter three letter airport code...
-                <input type="text" value={val} onChange={e => onChange(e.target.value)} />
-                <button>Submit</button>
-            </label>
+            <input type="text" value={val} onChange={e => onChange(e.target.value)} />
+            <button>Submit</button>
         </form>
     )
 }

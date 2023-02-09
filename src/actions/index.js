@@ -7,10 +7,12 @@ export const GET_FAIL = "GET_FAIL";
 
 export const getResults = val => dispatch => {
     dispatch(setFetchingTrue());
-    axios.get(`https://greatcirclemapper.p.rapidapi.com/airports/search/${val}`).then(res => {
-        dispatch(getSuccess(res.data));
+    
+    axios.request(`https://api.funtranslations.com/translate/yoda.json?text=${val}`).then(res => {
+        dispatch(getSuccess(res.data.contents.translated));
     }, err => {
-        dispatch(getFail(err.message));
+        console.error(err);
+        dispatch(getFail(err));
     })
     return ({ type: GET_RESULTS });
 }
