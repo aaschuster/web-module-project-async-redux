@@ -6,7 +6,7 @@ import './App.css';
 import Form from "./Form"
 import Results from "./Results"
 
-function App( { results } ) {
+function App( { err, results } ) {
 
   return (
     <div className="App">
@@ -20,8 +20,10 @@ function App( { results } ) {
       </h2>
 
       <Form />
+
+      <p id="err">{err}</p>
       
-      <p>{results}</p>
+      <p id="res">{results}</p>
 
     </div>
   );
@@ -29,6 +31,7 @@ function App( { results } ) {
 
 const mapProps = state => {
   return {
+    err: state.err,
     results: state.results
   }
 }

@@ -17,7 +17,7 @@ function Form({ getResults }) {
 
     return (
         <form onSubmit={e => onSubmit(e)}>
-            <input type="text" value={val} onChange={e => onChange(e.target.value)} />
+            <textarea value={val} onChange={e => onChange(e.target.value)} placeholder="Insert text to be translated..."/>
             <button>Submit</button>
         </form>
     )

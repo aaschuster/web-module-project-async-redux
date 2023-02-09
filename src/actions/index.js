@@ -11,8 +11,7 @@ export const getResults = val => dispatch => {
     axios.request(`https://api.funtranslations.com/translate/yoda.json?text=${val}`).then(res => {
         dispatch(getSuccess(res.data.contents.translated));
     }, err => {
-        console.error(err);
-        dispatch(getFail(err));
+        dispatch(getFail(err.message));
     })
     return ({ type: GET_RESULTS });
 }
