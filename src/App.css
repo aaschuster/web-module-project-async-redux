@@ -53,6 +53,7 @@ table {
   flex-direction: column;
   justify-content: flex-start;
   height: 100vh;
+  font-family: 'Space Mono', monospace;
 }
 
 h1 {
