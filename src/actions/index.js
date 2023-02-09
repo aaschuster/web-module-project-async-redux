@@ -7,6 +7,8 @@ export const GET_FAIL = "GET_FAIL";
 
 export const getResults = val => dispatch => {
     dispatch(setFetchingTrue());
+
+    dispatch(getSuccess(val));
     
     axios.request(`https://api.funtranslations.com/translate/yoda.json?text=${val}`).then(res => {
         dispatch(getSuccess(res.data.contents.translated));

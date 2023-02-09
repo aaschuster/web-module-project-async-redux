@@ -1,12 +1,11 @@
 import React from 'react';
-import { connect } from 'react-redux'
 
 import './App.css';
 
 import Form from "./Form"
-import Results from "./Results"
+import Response from './Response';
 
-function App( { err, results, isFetching } ) {
+function App() {
 
   return (
     <div className="App">
@@ -20,22 +19,10 @@ function App( { err, results, isFetching } ) {
       </h2>
 
       <Form />
-      <div id="response">
-        {isFetching ? <p id="loading">Loading...</p> : <></>}
-        {err ? <p id="err">{err}</p> : <></>}
-        {results ? <p id="res">{results}</p> : <></>}
-      </div>
+      <Response />
 
     </div>
   );
 }
 
-const mapProps = state => {
-  return {
-    err: state.err,
-    results: state.results,
-    isFetching: state.isFetching
-  }
-}
-
-export default connect(mapProps, {})(App);
+export default App;
