@@ -6,7 +6,7 @@ import './App.css';
 import Form from "./Form"
 import Results from "./Results"
 
-function App( { err, results } ) {
+function App( { err, results, isFetching } ) {
 
   return (
     <div className="App">
@@ -16,14 +16,15 @@ function App( { err, results } ) {
       </h1>
 
       <h2>
-        Change a sentence into Yoda Speak!!
+        Change a sentence into <span id="yoda">Yoda</span> Speak!!
       </h2>
 
       <Form />
-
-      <p id="err">{err}</p>
-      
-      <p id="res">{results}</p>
+      <div id="response">
+        {isFetching ? <p id="loading">Loading...</p> : <></>}
+        {err ? <p id="err">{err}</p> : <></>}
+        {results ? <p id="res">{results}</p> : <></>}
+      </div>
 
     </div>
   );
@@ -32,7 +33,8 @@ function App( { err, results } ) {
 const mapProps = state => {
   return {
     err: state.err,
-    results: state.results
+    results: state.results,
+    isFetching: state.isFetching
   }
 }
 
